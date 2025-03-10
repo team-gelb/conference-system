@@ -13,8 +13,8 @@ function CloudflareWorkerComponent() {
       if (!response.ok) {
         throw new Error("Fehler beim Abrufen der Daten");
       }
-      const result = await response.json();
-      setData(result.message);
+      const result = await response;
+      setData(result);
     } catch (error) {
       console.error("Fehler:", error);
       setData("Fehler beim Laden der Daten.");
