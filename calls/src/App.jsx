@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios"; // Axios muss importiert werden
+import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -8,11 +7,18 @@ function CloudflareWorkerComponent() {
   const [data, setData] = useState(null);
   const [input, setInput] = useState("");
 
-  const fetchData = () => {
-    axios
-      .get(`https://team-gelb.de/${input}`)
-      .then((response) => setData(response.data.message))
-      .catch((error) => console.error("Fehler:", error));
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`https://team-gelb.de/${input}`);
+      if (!response.ok) {
+        throw new Error("Fehler beim Abrufen der Daten");
+      }
+      const result = await response.json();
+      setData(result.message);
+    } catch (error) {
+      console.error("Fehler:", error);
+      setData("Fehler beim Laden der Daten.");
+    }
   };
 
   return (
