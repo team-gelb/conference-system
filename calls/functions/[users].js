@@ -6,5 +6,5 @@ export function onRequest(context) {
 
     const checkUserIsRegistered = registeredUsers.includes(context.params.users)
 
-    return new Response("Der Nutzer" + context.params.users + " ist" + (checkUserIsRegistered ? "" : " nicht") + " registriert.");
+    return new Response("Der Nutzer " + context.params.users + " ist" + (checkUserIsRegistered ? "" : " nicht") + " registriert.");
 }
