@@ -1,17 +1,17 @@
-import {Button, Flex, Text} from "@radix-ui/themes";
-import './App.css'
+import HomePage from "./pages/HomePage.jsx";
+import { Routes, Route, Link } from "react-router";
 
-function App() {
-
+const App = () => {
     return (
-        <Flex width={{ initial: "100%", sm: "300px", md: "500px" }}>
-    <Text>Hello from Radix Themes :)</Text>
-            <Button>Let&#39;s go</Button>
+        <div className="container">
+            <nav style={{ marginBottom: '1rem' }}>
+                <Link style={{ marginRight: '1rem' }} to="/">Home</Link>
+            </nav>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+            </Routes>
+        </div>
+    );
+};
 
-        </Flex>
-
-    )
-}
-
-export default App
-
+export default App;
