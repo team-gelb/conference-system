@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router";
-import "./App.css";
 
 const CloudflareWorkerComponent = () => {
     const [data, setData] = useState(null);
@@ -39,7 +38,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <h1>Home Page</h1>
+            <h1 className={"text-gray-500 dark:text-gray-400"}>Home Page</h1>
             <CloudflareWorkerComponent />
             <div className="card">
                 <button onClick={() => setCount(count + 1)}>

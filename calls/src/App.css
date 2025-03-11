@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+
+html, body, #root {
+    @apply h-full w-full;
+}
+
+body {
+    @apply flex items-center justify-center bg-gray-100;
+}
+
+.container {
+    @apply max-w-4xl mx-auto p-4;
+}
