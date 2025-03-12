@@ -7,15 +7,10 @@ import {
 } from '@tldraw/tlschema'
 import { AutoRouter, IRequest, error } from 'itty-router'
 import throttle from 'lodash.throttle'
+import { Environment } from './types'
 
 // The Cloudflare DO environment. You can adjust as needed.
-interface Env {
-	// The Durable Object binding for TldrawDurableObject
-	TLDRAW_ROOM: DurableObjectNamespace
 
-	// R2 bucket for storing snapshots
-	TLDRAW_BUCKET: R2Bucket
-}
 
 // If you have custom shapes / bindings, expand them here
 const schema = createTLSchema({
@@ -30,7 +25,7 @@ export class TldrawDurableObject implements DurableObject {
 	// Keep references so we can route DO “webSocketMessage” events to the correct session
 	private sockets = new Map<WebSocket, { sessionId: string }>()
 
-	constructor(private readonly ctx: DurableObjectState, private readonly env: Env) {
+	constructor(private readonly ctx: DurableObjectState, private readonly env: Environment) {
 		// Example: retrieve roomId from Durable Object storage
 		ctx.blockConcurrencyWhile(async () => {
 			this.roomId = (await this.ctx.storage.get<string>('roomId')) ?? null
