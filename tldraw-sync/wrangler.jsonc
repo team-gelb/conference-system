@@ -25,6 +25,7 @@
 	},
 	"observability": {
 		"enabled": true
+
 	},
 	"r2_buckets": [
 		{
