@@ -4,3 +4,7 @@
 /.idea/modules.xml
 /calls/package-lock.json
 /.idea/inspectionProfiles/Project_Default.xml
+/tldraw-sync/.editorconfig
+/tldraw-sync/.prettierrc
+/.idea/codeStyles/codeStyleConfig.xml
+/tldraw-sync/package-lock.json
